@@ -67,8 +67,8 @@ function Register() {
             />
             <TextField
               sx={{ mt: 1 }}
-              label="Username"
-              placeholder="Enter Username"
+              label="Email"
+              placeholder="Email"
               fullWidth
               required
               onChange={handleUser}
