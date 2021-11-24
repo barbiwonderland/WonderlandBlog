@@ -117,6 +117,7 @@ export const Cards = () => {
       spacing={3}
     >
       <Snackbar
+        sx={{ bottom: "80px" }}
         anchorOrigin={{
           vertical: "center",
           horizontal: "left",
