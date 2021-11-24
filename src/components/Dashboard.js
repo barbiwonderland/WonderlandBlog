@@ -24,7 +24,7 @@ const Dashboard = () => {
           Welcome {welcome}
         </Typography>
         {currentUser ? (
-          <Button color="primary" variant="contained">
+          <Button href="/upload" color="primary" variant="contained">
             Nuevo posteo
           </Button>
         ) : null

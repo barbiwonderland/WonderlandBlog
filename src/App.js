@@ -5,6 +5,7 @@ import Register from "./components/Register";
 import Dashboard from "./components/Dashboard";
 import { AuthProvider } from "./context/AuthContext";
 import { PrivateRoute } from "./components/PrivateRoute";
+import { InputForm } from "./components/InputForm";
 function App() {
   return (
     <div className="App">
@@ -12,9 +13,10 @@ function App() {
         <Router>
           <Routes>
             {/* <Route exact path="/" element={<PrivateRoute />}> */}
-              <Route exact path="/" element={<Dashboard/>} />
+            <Route exact path="/" element={<Dashboard />} />
             {/* </Route> */}
             <Route path="/login" element={<LogIn />} />
+            <Route path="/upload" element={<InputForm />} />
             <Route path="/register" element={<Register />} />
           </Routes>
         </Router>

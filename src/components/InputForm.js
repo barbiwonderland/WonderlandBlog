@@ -10,11 +10,13 @@ import { PhotoCamera } from "@mui/icons-material";
 import React, { useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { storage, fs } from "../firebase";
+import { useNavigate } from "react-router-dom";
 
 export const InputForm = () => {
   const { currentUser, logOut } = useAuth();
   const [text, setText] = useState("");
   const [image, setImage] = useState("");
+  let navigate = useNavigate();
 
   //STYLES
   const paperStyle = {
@@ -47,8 +49,8 @@ export const InputForm = () => {
       image: urlImage,
       autor: currentUser ? currentUser.email : "Anonimo",
     });
-    // Recargar pagina
-    window.location.reload();
+    // Redirigir al home
+    navigate("/");
   };
   const handleImage = (e) => {
     console.log(e.target.files[0]);
@@ -58,36 +60,36 @@ export const InputForm = () => {
   return (
     <div>
       <Grid container justify="center">
-        <Grid item xs={10} md={5} >
-        <form onSubmit={handleSubmit}>
-          <Paper elevation={10} style={paperStyle}>
-            <TextField
-              sx={{ mt: 2 }}
-              label="What's on you mind?"
-              fullWidth
-              required
-              onChange={handleText}
-            />
-            <br /> <br />
-            <Input
-              onChange={handleImage}
-              accept="image/*"
-              id="icon-button-file"
-              type="file"
-            />
-            <IconButton
-              color="primary"
-              aria-label="upload picture"
-              component="span"
-            >
-              <PhotoCamera />
-            </IconButton>
-            <br />
-            <Button  type="submit" variant="contained" color="primary">
-              Subir
-            </Button>
-          </Paper>
-        </form>
+        <Grid item xs={10} md={5}>
+          <form onSubmit={handleSubmit}>
+            <Paper elevation={10} style={paperStyle}>
+              <TextField
+                sx={{ mt: 2 }}
+                label="What's on you mind?"
+                fullWidth
+                required
+                onChange={handleText}
+              />
+              <br /> <br />
+              <Input
+                onChange={handleImage}
+                accept="image/*"
+                id="icon-button-file"
+                type="file"
+              />
+              <IconButton
+                color="primary"
+                aria-label="upload picture"
+                component="span"
+              >
+                <PhotoCamera />
+              </IconButton>
+              <br />
+              <Button type="submit" variant="contained" color="primary">
+                Subir
+              </Button>
+            </Paper>
+          </form>
         </Grid>
       </Grid>
     </div>
