@@ -54,13 +54,14 @@ export const Cards = () => {
       <>
         <Grid
           item
-          xs={8}
+          xs={10}
           sm={4}
           md={3}
           style={{
             justifyContent: "center",
             display: "flex",
             alignContent: "space-between",
+            margin:"2%"
           }}
         >
           <Card
@@ -114,7 +115,6 @@ export const Cards = () => {
       style={{ margin: 1 }}
       alignItems="stretch"
       justifyContent="center"
-      spacing={3}
     >
       <Snackbar
         sx={{ bottom: "80px" }}
