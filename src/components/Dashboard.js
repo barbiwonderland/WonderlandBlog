@@ -7,7 +7,12 @@ import { Button, Grid, Typography } from "@material-ui/core";
 
 const Dashboard = () => {
   const { currentUser, logOut } = useAuth();
-  const welcome = currentUser ? currentUser.email : "Ghost User 👻";
+  const userExist = currentUser ? currentUser.email : "Ghost User 👻";
+  const welcome = currentUser ? (
+    <Button href="/upload" color="primary" variant="contained">
+      Nuevo posteo
+    </Button>
+  ) : null;
 
   return (
     <>
@@ -21,14 +26,9 @@ const Dashboard = () => {
         }}
       >
         <Typography variant="h6" component="h5">
-          Welcome {welcome}
+          Welcome {userExist}
         </Typography>
-        {currentUser ? (
-          <Button href="/upload" color="primary" variant="contained">
-            Nuevo posteo
-          </Button>
-        ) : null
-        }
+        {welcome}
       </div>
       <Cards />
     </>
