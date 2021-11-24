@@ -3,7 +3,7 @@ import { Navbar } from "./Navbar";
 import { Cards } from "./Cards";
 import { InputForm } from "./InputForm";
 import { useAuth } from "../context/AuthContext";
-import { Typography } from "@material-ui/core";
+import { Button, Grid, Typography } from "@material-ui/core";
 
 const Dashboard = () => {
   const { currentUser, logOut } = useAuth();
@@ -11,18 +11,26 @@ const Dashboard = () => {
 
   return (
     <>
-      <Navbar />
-      <Typography
-        style={{ marginTop: 20 }}
-        align="center"
-        variant="h6"
-        component="h5"
+      <Navbar />{" "}
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-around",
+          marginTop: "1%",
+          flexWrap: "wrap",
+        }}
       >
-        Welcome {welcome}
-      </Typography>
-      <InputForm />
+        <Typography variant="h6" component="h5">
+          Welcome {welcome}
+        </Typography>
+        {currentUser ? (
+          <Button color="primary" variant="contained">
+            Nuevo posteo
+          </Button>
+        ) : null
+        }
+      </div>
       <Cards />
-
     </>
   );
 };

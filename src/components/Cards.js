@@ -57,9 +57,9 @@ export const Cards = () => {
           xs={8}
           sm={4}
           md={3}
-          style={{ justifyContent: "center", display: "flex" }}
+          style={{ justifyContent: "center", display: "flex", alignContent:"space-between" }}
         >
-          <Card key={x.autor} style={{ height: "100%", width: "80%" }}>
+          <Card key={x.autor} style={{ height: "100%", width: "80%",alignContent:"space-between" }}>
             <CardActionArea>
               <CardMedia
                 component="img"
@@ -84,7 +84,7 @@ export const Cards = () => {
                 <Typography>{x.autor}</Typography>
               </CardContent>
             </CardActionArea>
-            <CardActions style={{ display: "flex", alignSelf: "" }}>
+            <CardActions >
               <Button
                 onClick={() => deletePost(x.id, x.autor)}
                 size="small"
@@ -98,7 +98,7 @@ export const Cards = () => {
       </>
     ));
   return (
-    <Grid container style={{ margin: 1 }} alignItems="stretch" justifyContent="center" spacing={3}>
+    <Grid container style={{ margin: 1 }} alignItems="stretch" justifyContent="center"  spacing={3}>
       {cardResult}
       <Snackbar
         bodyStyle={{ backgroundColor: "red" }}

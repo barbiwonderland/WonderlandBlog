@@ -10,6 +10,7 @@ import {
   Typography,
   Link,
   Alert,
+  Box,
 } from "@mui/material";
 import { useAuth } from "../context/AuthContext";
 function LogIn() {
@@ -31,7 +32,7 @@ function LogIn() {
       setError("Usuario o contraseña incorrecta");
     }
     setTimeout(() => {
-      setError("")
+      setError("");
     }, 3000);
   };
   const paperStyle = {
@@ -47,16 +48,18 @@ function LogIn() {
     <>
       <Grid>
         <form onSubmit={handleSubmit}>
-          <Paper elevation={10} style={paperStyle}>
+          <Paper elevation={20} style={paperStyle}>
             <Grid align="center">
               <Avatar style={avatarStyle}>
                 <LockOpenOutlinedIcon />
               </Avatar>
-              <h3>Sign In</h3>
+              <Box my={2}>
+                <Typography variant="h5">Sign In</Typography>
+              </Box>
             </Grid>
             <TextField
-              label="Username"
-              placeholder="Enter Username"
+              label="Email"
+              placeholder="Enter email"
               fullWidth
               required
               onChange={handleEmail}
@@ -79,14 +82,18 @@ function LogIn() {
             >
               Sign in
             </Button>
-            <br/>
-
-            <Typography>
-              Do you Have an account?
-              <Link href="/register"> Sign Up</Link>
-            </Typography>
-            <br/>
-             {error && <Alert severity="error">{error}</Alert>}
+            <br />
+            <Box mt={2}>
+              <Typography>
+                Do you have an account?
+                <Link style={{ textDecoration: "none" }} href="/register">
+                  {" "}
+                  Sign Up
+                </Link>
+              </Typography>
+            </Box>
+            <br />
+            {error && <Alert severity="error">{error}</Alert>}
           </Paper>
         </form>
       </Grid>

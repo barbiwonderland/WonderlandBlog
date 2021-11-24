@@ -12,6 +12,7 @@ import {
   Alert,
   Snackbar,
 } from "@mui/material";
+import { Box } from "@mui/system";
 
 function Register() {
   const [user, setUser] = useState("");
@@ -57,7 +58,9 @@ function Register() {
               <Avatar style={avatarStyle}>
                 <LockOpenOutlinedIcon />
               </Avatar>
-              <h3>Sign Up</h3>
+              <Box my={2}>
+                <Typography variant="h5">Sign up</Typography>
+              </Box>
             </Grid>
             <TextField
               label="Full name"
@@ -93,8 +96,8 @@ function Register() {
             </Button>
             <br/><br/>
             <Typography>
-              Do you Have an account?
-              <Link href="/"> Sign In</Link>
+              Do you have an account?
+              <Link style={{textDecoration:"none"}} href="/"> Sign In</Link>
             </Typography>
             <br/>
             {error && <Alert severity="error">{error}</Alert>}
