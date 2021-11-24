@@ -117,7 +117,7 @@ export const Cards = () => {
       justifyContent="center"
     >
       <Snackbar
-        sx={{ bottom: "80px" }}
+        sx={{ bottom: "10px" }}
         anchorOrigin={{
           vertical: "center",
           horizontal: "left",
