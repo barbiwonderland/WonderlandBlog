@@ -39,7 +39,9 @@ export const Cards = () => {
       }
     } else {
       setOpen(true);
-      setMessage("❌ Usuario no autorizado");
+      !currentUser
+        ? setMessage("❌ Debes loguearte para poder eliminar publicaciones")
+        : setMessage("❌ Usuario no autorizado");
     }
   };
   useEffect(() => {
@@ -114,12 +116,14 @@ export const Cards = () => {
       justifyContent="center"
       spacing={3}
     >
-      {cardResult}
       <Snackbar
-        bodyStyle={{ backgroundColor: "red" }}
+        anchorOrigin={{
+          vertical: "center",
+          horizontal: "left",
+        }}
         open={open}
         onClose={() => setOpen(false)}
-        autoHideDuration={1500}
+        autoHideDuration={2000}
       >
         <SnackbarContent
           style={{
@@ -128,6 +132,8 @@ export const Cards = () => {
           message={message}
         />
       </Snackbar>
+
+      {cardResult}
     </Grid>
   );
 };
